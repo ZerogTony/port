@@ -9,9 +9,12 @@ import each from 'lodash/each'
 
 import Detection from 'classes/Detection'
 
+import Intro from 'pages/Intro'
 import About from 'pages/About'
 import Case from 'pages/Case'
 import Home from 'pages/Home'
+
+
 
 import Canvas from 'components/Canvas'
 import Navigation from 'components/Navigation'
@@ -39,9 +42,11 @@ class App {
     this.createCase()
     this.createHome()
     this.createAbout()
+    this.createIntro()
 
     this.pages = {
       '/': this.home,
+      '/intro': this.intro,
       '/about': this.about,
       '/case': this.case
     }
@@ -78,6 +83,10 @@ class App {
     this.stats = new Stats()
 
     document.body.appendChild(this.stats.dom)
+  }
+
+  createIntro () {
+    this.intro = new Intro()
   }
 
   createAbout () {
