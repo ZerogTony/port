@@ -45,8 +45,9 @@ class App {
     this.createIntro()
 
     this.pages = {
-      '/': this.home,
-      '/intro': this.intro,
+
+      '/': this.intro,
+      '/home': this.home,
       '/about': this.about,
       '/case': this.case
     }
