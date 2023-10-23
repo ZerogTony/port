@@ -6,50 +6,41 @@
     transition: opacity 0.4s ease, visibility 0.4s ease;
   
     &--active {
-      @extend %page--active;
+        @extend %page--active;
+        
     }
+
+     // &:after {
+  //   background: #f0f;
+  //   content: '';
+  //   height: 100%;
+  //   left: 50%;
+  //   position: absolute;
+  //   transform: translateX(-50%);
+  //   width: 1.5rem;
+  // }
   }
   
-  .intro__background {
-    @extend %cover;
+
   
-    color: $color-pine-tree;
+  .intro__content {
+    @extend %content;
+  
+    padding: 15rem 0;
     pointer-events: none;
-    z-index: 10;
+    text-align: center;
   
-    &__top,
-    &__bottom {
-      background: currentColor;
-      content: '';
-      display: block;
-      height: 10rem;
-      position: absolute;
-      width: 100%;
-    }
-  
-    &__top {
-      background: linear-gradient(to bottom, currentColor 0%, transparent 100%);
-      top: 0;
-    }
-  
-    &__bottom {
-      background: linear-gradient(to bottom, transparent 0%, currentColor 100%);
-      bottom: 0;
+    @include media('<=phone') {
+      padding: 10rem 0 5rem;
     }
   }
   
   .intro__wrapper {
-    @extend %cover;
+    margin: auto;
+    text-align: left;
+    width: 176.7rem;
   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    @include media('<=phone') {
+      width: 95%;
+    }
   }
-  
-  .intro__title {
-    font-size: 3rem;
-    color: $color-pine-tree;
-    text-align: center;
-  }
-  

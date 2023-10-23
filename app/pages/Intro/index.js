@@ -1,4 +1,15 @@
+
 import Page from 'components/Page'
+
+import FontFaceObserver from 'fontfaceobserver'
+
+import each from 'lodash/each'
+
+import Detection from 'classes/Detection'
+
+import { BREAKPOINT_PHONE } from 'utils/breakpoints'
+import { getOffset } from 'utils/dom'
+import { clamp, delay } from 'utils/math'
 
 export default class extends Page {
   constructor() {
@@ -7,6 +18,12 @@ export default class extends Page {
         active: 'intro--active'
       },
       element: '.intro',
+      elements: {
+            wrapper: '.intro__content',
+            title: '.intro__header__title',
+            titles: '.intro__header__title__text span',
+          
+      },
       isScrollable: false
     });
 
@@ -35,7 +52,19 @@ export default class extends Page {
    */
   create() {
     super.create();
+
+    const font = new FontFaceObserver('Neue Montreal', 10000)
+
+    font.load().then(_ => {
+      this.onResize()
+    }).catch(_ => {
+      this.onResize()
+    })
+  
   }
+
+
+
 
   /**
    * Events.
