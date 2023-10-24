@@ -3,12 +3,7 @@ import Page from 'components/Page'
 
 import FontFaceObserver from 'fontfaceobserver'
 
-import each from 'lodash/each'
 
-import Detection from 'classes/Detection'
-
-import { BREAKPOINT_PHONE } from 'utils/breakpoints'
-import { getOffset } from 'utils/dom'
 import { clamp, delay } from 'utils/math'
 
 export default class extends Page {

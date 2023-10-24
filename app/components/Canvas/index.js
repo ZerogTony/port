@@ -99,7 +99,7 @@ export default class {
     })
 
     if (this.url.indexOf('/case/') > -1) {
-      const id = this.url.replace('/case/', '').replace('/', '')
+      const id = this.url.replace('/case/', '').replace('/home', '')
       const media = this.medias.find(media => media.id === id)
 
       media.onOpen()

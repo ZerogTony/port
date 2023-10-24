@@ -62,7 +62,7 @@ export default class {
         uMultiplier: { value: 1 },
         tMap: { value: texture }
       },
-      transparent: true
+      transparent: false
     })
 
     this.plane = new Mesh(this.gl, {
