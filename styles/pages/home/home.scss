@@ -48,7 +48,7 @@
     bottom: 0;
   }
 
-  @include media('<=phone') {
+  @include media {
     display: block;
   }
 }
@@ -80,138 +80,8 @@
   pointer-events: none;
   position: relative;
 
-  .home__item--xbox-museum & {
-    transform: translateX(-4.4rem);
-  }
-
-  .home__item--bbdo & {
-    transform: translateX(-0.7rem);
-  }
-
-  .home__item--peggy-gou & {
-    transform: translateX(32.3rem);
-  }
-
-  .home__item--isabel-moranta & {
-    transform: translateX(-2rem);
-  }
-
-  .home__item--floema & {
-    transform: translateX(-0.6rem);
-  }
-
-  .home__item--garoa-skincare & {
-    transform: translateX(-13.2rem);
-  }
-
-  .home__item--design-embraced & {
-    transform: translateX(-11.3rem);
-  }
-
-  .home__item--kacper-chlebowicz & {
-    transform: translateX(4.7rem);
-  }
-
-  .home__item--trolli & {
-    transform: translateX(-24.3rem);
-  }
-
-  .home__item--adventure-time & {
-    transform: translateX(7.5rem);
-  }
-
-  .home__item--studio-maertens & {
-    transform: translateX(24.5rem);
-  }
-
-  .home__item--inbound & {
-    transform: translateX(28.6rem);
-  }
-
-  .home__item--redis & {
-    transform: translateX(-9rem);
-  }
-
-  .home__item--kaleidoz & {
-    transform: translateX(-4.7rem);
-  }
-
-  .home__item--erika-moreira & {
-    transform: translateX(-32.5rem);
-  }
-
-  .home__item--bruno-arizio & {
-    transform: translateX(37.4rem);
-  }
-
-  .home__item--dominic-berzins & {
-    transform: translateX(12.8rem);
-  }
-
-  .home__item--pagethink & {
-    transform: translateX(-1.8rem);
-  }
-
-  .home__item--cult & {
-    transform: translateX(-13.5rem);
-  }
-
-  .home__item--movida & {
-    transform: translateX(-7.6rem);
-  }
-
-  .home__item--lufthansa-2 & {
-    transform: translateX(9.8rem);
-  }
-
-  .home__item--tiaa & {
-    transform: translateX(5.9rem);
-  }
-
-  .home__item--lufthansa-1 & {
-    transform: translateX(40rem);
-  }
-
-  .home__item--shell & {
-    transform: translateX(-14.3rem);
-  }
-
-  .home__item--corvette & {
-    transform: translateX(-24.5rem);
-  }
-
-  .home__item--nike & {
-    transform: translateX(3.7rem);
-  }
-
-  .home__item--airbnb & {
-    transform: translateX(-18rem);
-  }
-
-  .home__item--discovery-kids & {
-    transform: translateX(-36.8rem);
-  }
-
-  .home__item--rock-in-rio & {
-    transform: translateX(-3.1rem);
-  }
-
-  .home__item--neoway & {
-    transform: translateX(18.4rem);
-  }
-
-  .home__item--one-plus & {
-    transform: translateX(12.2rem);
-  }
-
-  .home__item--samsung & {
-    transform: translateX(4.9rem);
-  }
-
-  @include media('<=phone') {
-    transform: none !important;
-    width: 100%;
-  }
+  
+  
 }
 
 .home__link__media {
