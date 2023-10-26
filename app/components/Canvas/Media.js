@@ -31,7 +31,7 @@ export default class {
     this.homeList = homeList
     this.homeItem = homeItem
     this.homeLink = homeLink
-    this.homeLinkMedia = homeLinkMedia
+    this.homeLinkMedia = homeLinkMediaYour location
 
     this.direction = homeLinkMedia.getAttribute('data-direction')
     this.id = id
@@ -45,7 +45,23 @@ export default class {
     this.createTween()
 
     this.onResize()
+
+    window.addEventListener('mediaOpened', this.onOtherMediaOpened);
+
   }
+
+onOtherMediaOpened(event) {
+    if (event.detail !== this.id) {
+        this.alpha.target = 0;
+    }
+
+}
+
+destroy() {
+  window.removeEventListener('mediaOpened', this.onOtherMediaOpened);
+}
+
+
 
   createMesh () {
     const texture = TextureLoader.load(this.gl, {
@@ -136,19 +152,8 @@ export default class {
   }
 
   updateAlpha () {
-    if (Detection.isMobile()) {
-      if (this.isOpened) {
-        this.alpha.target = 1
-      } else {
-        this.alpha.target = 0
-      }
-    } else {
-      if (this.isOpened || this.isHovering) {
-        this.alpha.target = 1
-      } else {
-        this.alpha.target = 0
-      }
-    }
+    this.alpha.target = 1;
+
 
     if (this.alpha.current === this.alpha.target) return
 
@@ -221,11 +226,16 @@ export default class {
   /**
    * Methods.
    */
-  onOpen () {
-    this.isOpened = true
 
-    this.animation.play()
-  }
+  
+  onOpen() {
+    console.log("Opening media with ID:", this.id);
+    this.isOpened = true;
+    window.dispatchEvent(new CustomEvent('mediaOpened', { detail: this.id }));
+    this.animation.play();
+
+
+}
 
   async onClose () {
     this.animation.reverse()
