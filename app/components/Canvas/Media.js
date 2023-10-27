@@ -10,15 +10,17 @@ import vertex from 'shaders/vertex.glsl'
 import { getOffset } from 'utils/dom'
 import { delay, lerp } from 'utils/math'
 
-export default class {
-  constructor ({ caseMedia, geometry, gl, homeList, homeItem, homeLink, homeLinkMedia, id, scene, screen, viewport }) {
-    AutoBind(this)
+export default class Media {
+  constructor({ caseMedia, geometry, gl, homeList, homeItem, homeLink, homeLinkMedia, id, scene, screen, viewport }) {
+    AutoBind(this);
+
+    const isHomePage = window.location.pathname === '/Home';
 
     this.alpha = {
-      current: 0,
-      target: 0,
+      current: isHomePage ? 1 : 0,
+      target: isHomePage ? 1 : 0,
       ease: 0.15
-    }
+    };
 
     this.transition = 0
 
@@ -31,7 +33,7 @@ export default class {
     this.homeList = homeList
     this.homeItem = homeItem
     this.homeLink = homeLink
-    this.homeLinkMedia = homeLinkMediaYour location
+    this.homeLinkMedia = homeLinkMedia
 
     this.direction = homeLinkMedia.getAttribute('data-direction')
     this.id = id
@@ -50,12 +52,22 @@ export default class {
 
   }
 
-onOtherMediaOpened(event) {
-    if (event.detail !== this.id) {
-        this.alpha.target = 0;
+  onOtherMediaOpened(event) {
+    if (event.detail === this.id) {
+        this.alpha.target = 1; // The opened media remains visible
+    } else {
+        this.alpha.target = 0; // All other media items become invisible
     }
 
+
+
+    console.log("Media being opened:", event.detail);
+console.log("Current media ID:", this.id);
+
 }
+
+
+
 
 destroy() {
   window.removeEventListener('mediaOpened', this.onOtherMediaOpened);
@@ -152,7 +164,7 @@ destroy() {
   }
 
   updateAlpha () {
-    this.alpha.target = 1;
+   //this.alpha.target = 0;
 
 
     if (this.alpha.current === this.alpha.target) return
@@ -229,6 +241,7 @@ destroy() {
 
   
   onOpen() {
+    this.alpha.target = 1;
     console.log("Opening media with ID:", this.id);
     this.isOpened = true;
     window.dispatchEvent(new CustomEvent('mediaOpened', { detail: this.id }));
@@ -238,12 +251,20 @@ destroy() {
 }
 
   async onClose () {
+    
     this.animation.reverse()
 
     if (!this.isAboutOpened) {
       await delay(1000)
+
+      this.alpha.target = 1
+
     }
 
     this.isOpened = false
   }
+ 
+    
+
+
 }
