@@ -10,17 +10,15 @@ import vertex from 'shaders/vertex.glsl'
 import { getOffset } from 'utils/dom'
 import { delay, lerp } from 'utils/math'
 
-export default class Media {
-  constructor({ caseMedia, geometry, gl, homeList, homeItem, homeLink, homeLinkMedia, id, scene, screen, viewport }) {
-    AutoBind(this);
-
-    const isHomePage = window.location.pathname === '/Home';
+export default class {
+  constructor ({ caseMedia, geometry, gl, homeList, homeItem, homeLink, homeLinkMedia, id, scene, screen, viewport }) {
+    AutoBind(this)
 
     this.alpha = {
-      current: isHomePage ? 1 : 0,
-      target: isHomePage ? 1 : 0,
+      current: 0,
+      target: 0,
       ease: 0.15
-    };
+    }
 
     this.transition = 0
 
@@ -229,11 +227,24 @@ destroy() {
    */
   onAboutOpen () {
     this.isAboutOpened = true
+    this.alpha.target = 0
   }
 
   onAboutClose () {
     this.isAboutOpened = false
   }
+
+    /**
+   * About.
+   */
+    onAboutOpen () {
+      this.isAboutOpened = true
+      this.alpha.target = 0
+    }
+  
+    onAboutClose () {
+      this.isAboutOpened = false
+    }
 
   /**
    * Methods.
@@ -241,7 +252,7 @@ destroy() {
 
   
   onOpen() {
-    this.alpha.target = 1;
+    this.alpha.target = 0;
     console.log("Opening media with ID:", this.id);
     this.isOpened = true;
     window.dispatchEvent(new CustomEvent('mediaOpened', { detail: this.id }));

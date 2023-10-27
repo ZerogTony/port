@@ -1,3 +1,5 @@
+
+
 .home {
   @extend %cover;
   @extend %page;
@@ -95,6 +97,7 @@
   position: absolute;
   transition: width 0.4s 0.4s $ease-out-expo;
   width: 18.3rem;
+  
 
   &[data-direction="left"] {
     right: 100%;
@@ -119,3 +122,4 @@
     }
   }
 }
+

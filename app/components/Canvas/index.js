@@ -99,7 +99,7 @@ export default class {
     })
 
     if (this.url.indexOf('/case/') > -1) {
-      const id = this.url.replace('/case/', '').replace('/', '')
+      const id = this.url.replace('/case/', '').replace('/home', '')
       const media = this.medias.find(media => media.id === id)
 
       media.onOpen()
@@ -110,11 +110,13 @@ export default class {
    * Change.
    */
   onChange (url) {
-    if (url.indexOf('/about') > -1) {
+    if (url.indexOf('/about' ) > -1) {
       each(this.medias, media => media.onAboutOpen())
     } else {
       each(this.medias, media => media.onAboutClose())
     }
+
+    
 
     if (url.indexOf('/case') > -1) {
       const id = url.replace('/case/', '')
