@@ -64,7 +64,7 @@ export default class extends Component {
     if (!this.isDown || !this.isEnabled) return
 
     const y = event.touches ? event.touches[0].clientY : event.clientY
-    const distance = (this.start - y) * 2
+    const distance = (this.start - y) * 3
 
     this.scroll.target = this.scroll.position + distance
   }
@@ -79,7 +79,7 @@ export default class extends Component {
     if (!this.isEnabled) return
 
     const normalized = NormalizeWheel(event)
-    const speed = normalized.pixelY * 0.5
+    const speed = normalized.pixelY * 2
 
     this.scroll.target += speed
   }

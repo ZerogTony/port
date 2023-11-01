@@ -83,7 +83,7 @@ destroy() {
       vertex,
       uniforms: {
         uAlpha: { value: 0 },
-        uDirection: { value: this.direction === 'left' ? 0.5 : -0.5 },
+        uDirection: { value: this.direction === 'left' ? 1 : -1 },
         uTime: { value: 0 },
         uMultiplier: { value: 1 },
         tMap: { value: texture }
@@ -196,7 +196,7 @@ destroy() {
     this.updateVisibility()
 
     if (this.alpha.current > 0) {
-      this.plane.program.uniforms.uTime.value += (this.direction === 'left' ? 0.04 : -0.04)
+      this.plane.program.uniforms.uTime.value += (this.direction === 'left' ? 0.2 : -0.04)
     }
   }
 
