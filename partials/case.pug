@@ -20,13 +20,8 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
         | #{role}
 
       p.case__information__detail
-        | #[strong.case__information__detail__title Technologies]
+        | #[strong.case__information__detail__title Practice]
         | #{technologies}
-
-      if link
-        p.case__information__detail
-          | #[strong.case__information__detail__title #{label}]
-          | #[a(href=link target="_blank" rel="noreferrer noopener") View →]
 
     .case__gallery
       each content, index in gallery
@@ -46,12 +41,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 .cases
   +template({
     id: 'xbox-museum',
-    title: 'XBOX MUSEUM',
-    company: 'Active Theory',
-    role: 'Lead Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
-    label: 'Live URL',
-    link: 'https://museum.xbox.com/',
+    title: 'POPEYES',
+    company: '',
+    role: 'Lead Designer',
+    technologies: 'Graphic Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -77,12 +70,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'bbdo',
-    title: 'BBDO',
+    title: 'SPOTIFY',
     company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'WordPress · WebGL · GLSL · JavaScript',
-    label: 'Live URL',
-    link: 'https://bbdo.de/',
+    role: 'Designer',
+    technologies: 'Graphic Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -98,12 +89,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'peggy-gou',
-    title: 'PEGGY GOU',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
-    label: 'Live URL',
-    link: 'https://peggygou.com/',
+    title: 'BOXPARK',
+    company: 'Naughty Boy Kitchen',
+    role: 'Designer',
+    technologies: 'Furniture Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -119,12 +108,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'isabel-moranta',
-    title: 'ISABEL MORANTA',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'JavaScript',
-    label: 'Live URL',
-    link: 'https://isabelmoranta.com/',
+    title: 'TURNING TIDE',
+    company: 'London Festival of Archetecture',
+    role: 'Designer',
+    technologies: 'Graphic Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '2353', width: '1920' },
@@ -136,12 +123,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'floema',
-    title: 'FLOEMA',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
-    label: 'Live URL',
-    link: 'https://floema.jewelry/',
+    title: 'AMAZING GRACE',
+    company: 'Amazing Grace',
+    role: 'Designer',
+    technologies: 'Graphic Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -156,12 +141,11 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'garoa-skincare',
-    title: 'GAROA SKINCARE',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'JavaScript',
-    label: 'Live URL',
-    link: 'https://garoaskincare.com/',
+    title: 'IDRIS ELBA',
+    company: 'Idris Elba',
+    role: 'Designer',
+    technologies: 'Web Design, Graphic Design, Motion Design',
+
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -180,10 +164,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'design-embraced',
-    title: 'DESIGN EMBRACED',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
+    title: 'STOLI VODKA',
+    company: 'Stolichnaya',
+    role: 'Designer',
+    technologies: 'Graphic Design',
     label: 'Live URL',
     link: 'https://designembraced.com/',
     gallery: [
@@ -198,10 +182,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'kacper-chlebowicz',
-    title: 'KACPER CHLEBOWICZ',
-    company: 'Freelance',
-    role: 'Interactive Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
+    title: 'OLD COMPTON BRASSERIE',
+    company: 'Old Compton Brasserie',
+    role: 'Designer',
+    technologies: 'Concept Design, Graphic Design',
     label: 'Live URL',
     link: 'https://kacper.ch/',
     gallery: [
@@ -219,12 +203,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'trolli',
-    title: 'TROLLI',
+    title: 'ETEFY',
     company: 'Active Theory',
-    role: 'Interactive Developer',
-    technologies: 'WebGL · GLSL · JavaScript',
-    label: 'Live URL',
-    link: 'https://trollideliciouslydarkescape.com/',
+    role: 'Graphic Design',
+    technologies: 'Editorial Design',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },

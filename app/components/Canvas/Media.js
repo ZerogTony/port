@@ -196,7 +196,7 @@ destroy() {
     this.updateVisibility()
 
     if (this.alpha.current > 0) {
-      this.plane.program.uniforms.uTime.value += (this.direction === 'left' ? 0.2 : -0.04)
+      this.plane.program.uniforms.uTime.value += (this.direction === 'left' ? 0.07: -0.07)
     }
   }
 

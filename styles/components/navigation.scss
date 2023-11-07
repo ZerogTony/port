@@ -11,6 +11,7 @@
 }
 
 .navigation__item {
+  mix-blend-mode: difference;
   font-size: 2rem;
   line-height: 3.6rem;
   pointer-events: auto;

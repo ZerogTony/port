@@ -19,7 +19,7 @@ void main() {
   float value = 1.0;
 
   if (vDisplacement > 0.0) {
-    color += vDisplacement * mix(0.2, 0.7, uMultiplier);
+    color += vDisplacement * mix(0.2, 0.19, uMultiplier);
     value = 1.0 + vDisplacement * 2.0;
   }
 

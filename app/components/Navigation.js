@@ -5,6 +5,8 @@ import { random } from 'utils/math'
 
 export default class extends Component {
   constructor ({ canvas, url }) {
+
+  
     super({
       classes: {
         linksActive: 'navigation__link--active'

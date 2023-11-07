@@ -1,4 +1,4 @@
-attribute vec2 uv;
+ attribute vec2 uv;
 attribute vec3 position;
 
 uniform mat4 modelViewMatrix;
@@ -18,7 +18,7 @@ void main() {
   vec3 newPosition = position;
 
 float z = cos(uTime * 0.5 + newPosition.x * mix(1.0, 3.0, uMultiplier));
-  newPosition.z += z * (position.x - uDirection) * 0.4;
+  newPosition.z += z * (position.x - uDirection) * 0.3;
   vDisplacement = newPosition.z;
   newPosition.z *= uMultiplier;
 

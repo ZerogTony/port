@@ -72,12 +72,24 @@
 }
 
 .about__section__number {
-  font: 50rem/1 $font-ampersand;
+  font: 50rem/1.8 $font-ampersand;
   height: 50rem;
   margin-top: -4.3rem;
 
   @include media('<=phone') {
     font-size: 20rem;
+    height: 20rem;
+    margin-top: 0;
+  }
+}
+
+.about__section__number2 {
+  font: 10rem/4 $font-ampersand;
+  height: 40rem;
+  margin-top: -4.3rem;
+
+  @include media('<=phone') {
+    font-size: 10rem;
     height: 20rem;
     margin-top: 0;
   }

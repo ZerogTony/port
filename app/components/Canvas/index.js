@@ -26,7 +26,7 @@ export default class {
     }
 
     this.planeGeometry = new Plane(this.gl, {
-      widthSegments: 20
+      widthSegments: 30
     })
 
     document.body.appendChild(this.gl.canvas)
@@ -166,7 +166,7 @@ export default class {
     })
 
     const fov = this.camera.fov * (Math.PI / 180)
-    const height = 2 * Math.tan(fov / 2) * this.camera.position.z
+    const height = 1.8 * Math.tan(fov / 2) * this.camera.position.z
     const width = height * this.camera.aspect
 
     this.viewport = {

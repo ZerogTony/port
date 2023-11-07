@@ -64,13 +64,17 @@
 }
 
 .home__item {
+
   font: 17rem/10 $font-ampersand;
   white-space: nowrap;
+  
 
   @include media('<=phone') {
-    font: 2rem/10 $font-ampersand;
+    font: 3rem/10 $font-ampersand;
   }
 }
+
+
 
 .home__link {
   display: block;
@@ -81,10 +85,15 @@
   display: inline-block;
   pointer-events: none;
   position: relative;
+  min-width: 68.3rem;
 
-  
-  
+  @include media('<=phone') {
+    min-width: 28.3rem;
+
+  }
 }
+  
+
 
 .home__link__media {
   background: $color-iron;
@@ -95,25 +104,27 @@
   opacity: 0;
   overflow: hidden;
   position: absolute;
-  width: 58.3rem;
+  width: 68.3rem;
 
   &[data-direction="left"] {
-    right: 50%;
-    transform: translate(50%, 50%);
+    left: 50%;
+    transform: translate(-50%, 50%);
   }
 
   &[data-direction="right"] {
-    left: 50%;
-    transform: translate(-50%, 50%);
+    right: 50%;
+      transform: translate(50%, 50%);
   }
 
   @include media('<=phone') {
     bottom: 50%;
     margin: 0;
+    height: 10.3rem;
+    width: 18.3rem;
 
     &[data-direction="left"] {
       right: 50%;
-      transform: translate(50%, 50%);
+      transform: translate(-50%, 50%);
     }
 
     &[data-direction="right"] {
