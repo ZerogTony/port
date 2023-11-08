@@ -76,6 +76,7 @@
   display: inline-block;
   line-height: 1.1;
   vertical-align: middle !important;
+  
 
   .navigation__item:not(:first-child) & {
     @extend %link--hidden;

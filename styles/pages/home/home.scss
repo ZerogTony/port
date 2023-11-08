@@ -60,6 +60,7 @@
 }
 
 .home__list {
+  
 
 }
 
@@ -67,10 +68,13 @@
 
   font: 17rem/10 $font-ampersand;
   white-space: nowrap;
+  mix-blend-mode:color-dodge;
+  
   
 
   @include media('<=phone') {
     font: 3rem/10 $font-ampersand;
+    
   }
 }
 
