@@ -1,4 +1,4 @@
-mixin template({ id, title, category, company, role, technologies, link, label, gallery })
+mixin template({ id, title, category, company, role, technologies, link, label, gallery, description })
   article.case(id=id)
     header.case__header
       h3.case__title
@@ -23,6 +23,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
         | #[strong.case__information__detail__title Practice]
         | #{technologies}
 
+    if description
+      .case__description
+        p.case__description__text #{description}
+
     .case__gallery
       each content, index in gallery
         .case__gallery__media
@@ -38,20 +42,22 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
               style=`padding-top: ${content.height / content.width * 100}%;`
             )
 
+
 .cases
   +template({
     id: 'xbox-museum',
     title: 'POPEYES',
-    company: '',
+    company: 'Popeyes',
     role: 'Lead Designer',
     technologies: 'Graphic Design',
+    description: '  I worked on the UK launch of the fast-food brand, Popeyes.  This involved social content, launch activations and promotions. The goal was to develop a unique brand voice for the UK audience while aligning with the global brand identity.  In addition to the branding work, I also led for a graffiti  mural activation in Shoreditch, London. The mural was to promote the launch and a Megan Thee Stallion collaboration and a QR code was incorporated into the art, to be scanned for a promo deal. The artwork was created from existing assets given by the Popeyes marketing team. A QR code was incorporated into the mural, allowing passers-by to scan it for a free promo deal.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '6', type: 'screenshot', height: '1080', width: '1080' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '5', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '5', type: 'screenshot', height: '1080', width: '1080' },
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
       { image: '7', type: 'screenshot', height: '1080', width: '1920' },
       { image: '8', type: 'screenshot', height: '1080', width: '1920' },
       { image: '9', type: 'screenshot', height: '1080', width: '1920' },
@@ -74,16 +80,12 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Freelance',
     role: 'Designer',
     technologies: 'Graphic Design',
+    description: ' Collaborating with Paq Studios, I worked on the design fly posters for the Spotify playlist NOCAP. The posters were displayed at Wireless Festival 2022 in both Birmingham and London.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '5', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '7', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '8', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '9', type: 'screenshot', height: '1080', width: '1920' }
     ]
   })
 
@@ -93,6 +95,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Naughty Boy Kitchen',
     role: 'Designer',
     technologies: 'Furniture Design',
+    description: 'I worked on the design of Naughty Boys pop-up restaurant in Boxpark, Croydon. Working with the team at Boxpark and Naughty Boy Kitchen, I designed the spatial graphics, menus, logos and packaging.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -112,6 +115,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'London Festival of Archetecture',
     role: 'Designer',
     technologies: 'Graphic Design',
+    description: 'The turning tide was a conceptual bench designed as part of a national competition run by the London festival of Architecture.  I and my brother collaborated on the winning design which we were then commissioned to build and install within a month.The theme of the design was "act". Our design interpreted this theme by focusing on the organic transition between mental states, and symbolising the transformative power of rest and reflection on the mind. We wanted the design to portray are fluid change in thought, often the precursor to an act. To connect this idea with the community, we incorporated cages on the sides of the bench, allowing park-goers to leave messages on rocks for future visitors.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '2353', width: '1920' },
@@ -127,6 +131,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Amazing Grace',
     role: 'Designer',
     technologies: 'Graphic Design',
+    description: 'This is a description of the POPEYES project showcasing my role and contributions.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -145,6 +150,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Idris Elba',
     role: 'Designer',
     technologies: 'Web Design, Graphic Design, Motion Design',
+    description: 'As a Senior Designer at The Fitting Room, I worked with Idris Elba on multiple design projects including web design, social content and management and event design for his personal brand, his wine company Port Noire, and film company Green Door Pictures and film premiere parties such as "The Harder They Fall.',
 
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
@@ -168,8 +174,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Stolichnaya',
     role: 'Designer',
     technologies: 'Graphic Design',
-    label: 'Live URL',
-    link: 'https://designembraced.com/',
+    description: 'This is a description of the POPEYES project showcasing my role and contributions.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -186,8 +191,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Old Compton Brasserie',
     role: 'Designer',
     technologies: 'Concept Design, Graphic Design',
-    label: 'Live URL',
-    link: 'https://kacper.ch/',
+    description: 'This is a description of the POPEYES project showcasing my role and contributions.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
