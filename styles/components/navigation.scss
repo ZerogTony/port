@@ -10,6 +10,13 @@
   @extend %cover;
 }
 
+#lottie-animation-container {
+  width: 100px;  /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  display: block;
+}
+
+
 .navigation__item {
   mix-blend-mode: difference;
   font-size: 2rem;
@@ -104,3 +111,4 @@
     bottom: 1.5rem;
   }
 }
+

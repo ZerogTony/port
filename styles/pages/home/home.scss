@@ -66,11 +66,10 @@
 
 .home__item {
 
-  font: 17rem/10 $font-ampersand;
+  font: 7rem/9 $font-Neue-Pixel-Grotesk;
   white-space: nowrap;
   mix-blend-mode:color-dodge;
-  
-  
+
 
   @include media('<=phone') {
     font: 3rem/10 $font-ampersand;
@@ -83,12 +82,14 @@
 .home__link {
   display: block;
   text-align: center;
+  
 }
 
 .home__link__wrapper {
   display: inline-block;
   pointer-events: none;
-  position: relative;
+  margin-top: 55rem;
+  position: flex;
   min-width: 68.3rem;
 
   @include media('<=phone') {

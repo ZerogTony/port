@@ -25,11 +25,9 @@
   
   .intro__content {
     @extend %content;
-  
-    padding: 15rem 0;
     pointer-events: none;
     text-align: center;
-  
+    margin: 15rem 0;
     @include media('<=phone') {
       padding: 10rem 0 5rem;
     }
@@ -37,6 +35,7 @@
   
   .intro__wrapper {
     margin: auto;
+
     text-align: left;
     width: 176.7rem;
   
@@ -44,3 +43,31 @@
       width: 95%;
     }
   }
+
+ 
+
+  .intro__description {
+    display: block;
+    text-align: justify; // Centers the text horizontally
+    text-align-last: justify;
+    text-justify: inter-word;
+    padding: 3rem 62rem; // Adds vertical padding above and below the text
+    font-family: $font-Neue-Pixel-Grotesk; // Uses your font variable
+    font-size: 3rem; // Example font size, adjust as needed
+    text-transform: uppercase;
+    transform: translateY(100%); // Start below the view
+   transition: transform 2.5s $ease-out-expo; // Set up a transition
+   transition-delay: 1s; // Delay the start of the animation
+   opacity: 0; // Start with the text being invisible
+    transition-property: transform, opacity; // Transition both transform and opacity
+    transition-duration: 1s, 1.5s; // Different durations for transform and opacity
+    transition-timing-function: $ease-out-expo, ease; // Ease for opacity
+    transition-delay: 0s, 1s; // Different delays for transform and opacity
+}
+.intro--active {
+  .intro__description {
+    transform: translateY(0); // Move to the final position
+    opacity: 1; // Make the text fully visible
+  }
+}
+  

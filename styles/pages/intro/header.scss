@@ -1,8 +1,9 @@
 .intro__header {
-
-  margin-top: 25%;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode:color-burn;
+  margin-top: 5%;
   text-align: center;
-
   @include media('<=phone') {
     height: 19rem;
     margin-bottom: 5rem;
@@ -10,8 +11,8 @@
 }
 
 .intro__header__title {
-  font: 28rem/1 $font-neue-montreal;
-  display: inline-block;
+  font: 35rem/1 $font-ampersand;
+  display: block;
   text-align: center;
 
   @include media('<=phone') {
@@ -21,7 +22,7 @@
 
 .intro__header__title__text {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
   overflow: hidden;
 
   span {
@@ -75,3 +76,25 @@
     text-align: right;
   }
 }
+
+.image-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%; // Ensures the wrapper takes the full width
+  display: flex;
+  justify-content: center; // Centers the image horizontally
+  align-items: center; // Centers the image vertically
+  margin-top: -12rem; // Adds some space between the title and the image
+}
+
+.intro__image {
+  max-width: 25%;
+  height: auto;
+  opacity: 0; // Start with the image fully transparent
+    transition: opacity 5s ease-in-out; // Adjust the time as needed for the fade effect
+}
+
+.intro--active .intro__image {
+  opacity: 1; // Fade the image in to full opacity
+}
+

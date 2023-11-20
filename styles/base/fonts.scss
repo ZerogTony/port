@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Ampersand';
-  src: url('../fonts/Swell-Regular.woff2') format('woff2'),
-       url('../fonts/Swell-Regular.woff') format('woff');
+  src: url('../fonts/Evangelion.woff2') format('woff2'),
+  url('../fonts/Evangelion.woff') format('woff');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -11,6 +11,15 @@
   font-family: 'Neue Montreal';
   src: url('../fonts/neue-montreal-regular.woff2') format('woff2'),
        url('../fonts/neue-montreal-regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Pixel Grotesk';
+  src: url('../fonts/Neue-Pixel-Grotesk.woff2') format('woff2'),
+       url('../fonts/Neue-Pixel-Grotesk.woff') format('woff');
   font-weight: 400;
   font-display: swap;
   font-style: normal;

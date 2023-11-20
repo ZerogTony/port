@@ -18,6 +18,7 @@
 .case__gallery__media {
   &:not(:first-child) {
     margin-top: 10rem;
+    
   }
 
   @include media('<=phone') {
@@ -35,6 +36,7 @@
   max-width: 192rem;
   position: relative;
   width: 90%;
+  background: transparent;
 }
 
 .case__gallery__media__loader {
@@ -100,3 +102,11 @@
     opacity: 1;
   }
 }
+
+
+  video.case__media__video {
+    width: 50%;
+   left: 50%;
+    height: auto; // Maintain aspect ratio
+    // Add any additional styles needed
+  }

@@ -79,7 +79,7 @@ export default class extends Component {
     if (!this.isEnabled) return
 
     const normalized = NormalizeWheel(event)
-    const speed = normalized.pixelY *3
+    const speed = normalized.pixelY *0.9
 
     this.scroll.target += speed
   }

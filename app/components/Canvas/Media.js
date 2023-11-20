@@ -152,7 +152,7 @@ destroy() {
   updateY (y) {
     this.y = lerp(this.boundsHome.top + (this.homeItem.position % this.boundsList.height), this.boundsCase.top - y, this.transition)
 
-    this.plane.position.y = (this.viewport.height / 2) - (this.plane.scale.y / 2) - (this.y / this.screen.height) * this.viewport.height
+    this.plane.position.y = (this.viewport.height /2) - (this.plane.scale.y / 2) - (this.y / this.screen.height) * this.viewport.height
   }
 
   updateX () {

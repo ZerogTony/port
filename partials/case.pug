@@ -1,4 +1,4 @@
-mixin template({ id, title, category, company, role, technologies, link, label, gallery, description })
+mixin template({ id, title, category, company, role, technologies, link, label, gallery, description, video })
   article.case(id=id)
     header.case__header
       h3.case__title
@@ -28,6 +28,12 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
         p.case__description__text #{description}
 
     .case__gallery
+      if video
+        .case__gallery__media
+          .case__gallery__media__box
+            video.case__media__video(controls)
+              source(src=`/case/${id}/${video}`, type='video/mp4')
+              | Your browser does not support the video tag.
       each content, index in gallery
         .case__gallery__media
           .case__gallery__media__box(style=`max-width: ${content.width / 10}rem;`)
@@ -35,7 +41,6 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
               span
               span
               span
-
             span.case__gallery__media__placeholder(
               data-src=`/case/${id}/${content.image}.jpg`
               data-src-webp=`/case/${id}/${content.image}.webp`
@@ -50,29 +55,19 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Popeyes',
     role: 'Lead Designer',
     technologies: 'Graphic Design',
-    description: '  I worked on the UK launch of the fast-food brand, Popeyes.  This involved social content, launch activations and promotions. The goal was to develop a unique brand voice for the UK audience while aligning with the global brand identity.  In addition to the branding work, I also led for a graffiti  mural activation in Shoreditch, London. The mural was to promote the launch and a Megan Thee Stallion collaboration and a QR code was incorporated into the art, to be scanned for a promo deal. The artwork was created from existing assets given by the Popeyes marketing team. A QR code was incorporated into the mural, allowing passers-by to scan it for a free promo deal.',
+    description: 'I worked on the UK launch of the fast-food brand, Popeyes. This involved social content, launch activations and promotions. The goal was to develop a unique brand voice for the UK audience while aligning with the global brand identity. In addition to the branding work, I also led for a graffiti mural activation in Shoreditch, London. The mural was to promote the launch and a Megan Thee Stallion collaboration and a QR code was incorporated into the art, to be scanned for a promo deal. The artwork was created from existing assets given by the Popeyes marketing team. A QR code was incorporated into the mural, allowing passers-by to scan it for a free promo deal.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '6', type: 'screenshot', height: '1080', width: '1080' },
+      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
       { image: '5', type: 'screenshot', height: '1080', width: '1080' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '7', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '8', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '9', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '10', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '11', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '12', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '13', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '14', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '15', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '16', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '17', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '18', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '19', type: 'screenshot', height: '1080', width: '1920' }
-    ]
+    ],
+    video: 'whoa.mp4',
+
   })
+
 
   +template({
     id: 'bbdo',
@@ -86,6 +81,8 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '5', type: 'screenshot', height: '1080', width: '1920' }
+
     ]
   })
 
@@ -103,9 +100,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
       { image: '5', type: 'screenshot', height: '1080', width: '1920' },
       { image: '6', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '7', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '8', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '9', type: 'screenshot', height: '1080', width: '1920' }
+      { image: '7', type: 'screenshot', height: '1080', width: '1920' }
     ]
   })
 
@@ -118,10 +113,9 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     description: 'The turning tide was a conceptual bench designed as part of a national competition run by the London festival of Architecture.  I and my brother collaborated on the winning design which we were then commissioned to build and install within a month.The theme of the design was "act". Our design interpreted this theme by focusing on the organic transition between mental states, and symbolising the transformative power of rest and reflection on the mind. We wanted the design to portray are fluid change in thought, often the precursor to an act. To connect this idea with the community, we incorporated cages on the sides of the bench, allowing park-goers to leave messages on rocks for future visitors.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '2', type: 'screenshot', height: '2353', width: '1920' },
-      { image: '3', type: 'screenshot', height: '2350', width: '1920' },
-      { image: '4', type: 'screenshot', height: '2618', width: '1920' },
-      { image: '5', type: 'screenshot', height: '2500', width: '1920' }
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '4', type: 'screenshot', height: '1080', width: '1920' }
     ]
   })
 
@@ -146,7 +140,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'garoa-skincare',
-    title: 'IDRIS ELBA',
+    title: 'The Fitting Room',
     company: 'Idris Elba',
     role: 'Designer',
     technologies: 'Web Design, Graphic Design, Motion Design',
@@ -157,14 +151,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '5', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '7', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '8', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '9', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '10', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '11', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '12', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '5', type: 'screenshot', height: '1080', width: '1920' }
     ]
   })
 
@@ -174,7 +161,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Stolichnaya',
     role: 'Designer',
     technologies: 'Graphic Design',
-    description: 'This is a description of the POPEYES project showcasing my role and contributions.',
+    description: 'Stoli is a company with rich history but felt that the brand had become out of touch and sought after a activation to engage with younger audiences, namely Gen Z and the LGBTQAI+ community. Be the Spirit was a activation with a collaboration with "Drag Queen Story Time". As the creative design lead I was in charge of reaseach, brand idedntity and assets for the activation.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
@@ -191,17 +178,14 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
     company: 'Old Compton Brasserie',
     role: 'Designer',
     technologies: 'Concept Design, Graphic Design',
-    description: 'This is a description of the POPEYES project showcasing my role and contributions.',
+    description: 'Old Compton Brasserie is a luxury restaurant based in Soho. For the launch of the restaurant our design team was tasked with creating a brand campaign with a limited time and budget to create some attention. While the restaurant was under construction, our design team devised a plan to cover the front paneling with custom made posters made on photoshop. The goal was to emulate the excitement of festival and event posters and being as attention grabbing as possible. we worked with London street artist Anna Lauri, who created the center mural piece.',
     gallery: [
       { image: '1', type: 'screenshot', height: '1080', width: '1920' },
       { image: '2', type: 'screenshot', height: '1080', width: '1920' },
       { image: '3', type: 'screenshot', height: '1080', width: '1920' },
       { image: '4', type: 'screenshot', height: '1080', width: '1920' },
       { image: '5', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '7', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '8', type: 'screenshot', height: '1080', width: '1920' },
-      { image: '9', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '6', type: 'screenshot', height: '1080', width: '1920' }
     ]
   })
 
@@ -226,7 +210,7 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
 
   +template({
     id: 'adventure-time',
-    title: 'ADVENTURE TIME',
+    title: ' JACK DANIELS',
     company: 'Active Theory',
     role: 'Creative Developer',
     technologies: 'WebGL · GLSL · JavaScript',

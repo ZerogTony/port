@@ -80,3 +80,4 @@ export default class extends Page {
     super.update();
   }
 }
+
