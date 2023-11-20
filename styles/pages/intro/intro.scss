@@ -4,6 +4,7 @@
   
     overflow: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    background-color: white;
   
     &--active {
         @extend %page--active;
@@ -68,6 +69,7 @@
   .intro__description {
     transform: translateY(0); // Move to the final position
     opacity: 1; // Make the text fully visible
+    color: $color-pine-tree;
   }
 }
   
