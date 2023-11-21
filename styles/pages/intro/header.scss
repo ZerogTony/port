@@ -2,12 +2,8 @@
   position: relative;
   z-index: 1;
   color: $color-pine-tree;
-  mix-blend-mode:color-burn;
-  margin-top: 5%;
   text-align: center;
   @include media('<=phone') {
-    height: 19rem;
-    margin-bottom: 5rem;
   }
 }
 
@@ -106,3 +102,28 @@
   opacity: 1; // Fade the image in to full opacity
 }
 
+.intro__description {
+  display: block;
+  text-align: justify; // Centers the text horizontally
+  text-align-last: justify;
+  text-justify: inter-word;
+  padding: 3rem 62rem; // Adds vertical padding above and below the text
+  font-family: $font-Neue-Pixel-Grotesk; // Uses your font variable
+  font-size: 3rem; // Example font size, adjust as needed
+  text-transform: uppercase;
+
+ transition: transform 2.5s $ease-out-expo; // Set up a transition
+ transition-delay: 1s; // Delay the start of the animation
+ color: $color-pine-tree;
+  transition-property: transform, opacity; // Transition both transform and opacity
+  transition-duration: 1s, 1.5s; // Different durations for transform and opacity
+  transition-timing-function: $ease-out-expo, ease; // Ease for opacity
+  transition-delay: 0s, 1s; // Different delays for transform and opacity
+}
+.intro--active {
+.intro__description {
+  transform: translateY(0); // Move to the final position
+  opacity: 1; // Make the text fully visible
+  
+}
+}
