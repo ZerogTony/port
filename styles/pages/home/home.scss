@@ -32,7 +32,7 @@
 
   &__top,
   &__bottom {
-    background: currentColor;
+    background: black;
     content: '';
     display: block;
     height: 10rem;
@@ -41,12 +41,12 @@
   }
 
   &__top {
-    background: linear-gradient(to bottom, currentColor 0%, transparent 100%);
+    background: linear-gradient(to bottom, black 0%, transparent 100%);
     top: 0;
   }
 
   &__bottom {
-    background: linear-gradient(to bottom, transparent 0%, currentColor 100%);
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
     bottom: 0;
   }
 
@@ -65,14 +65,14 @@
 }
 
 .home__item {
-
-  font: 7rem/9 $font-Neue-Pixel-Grotesk;
+  font: 7rem/9 $font-neue-montreal;
   white-space: nowrap;
-  mix-blend-mode:color-dodge;
 
 
   @include media('<=phone') {
-    font: 3rem/10 $font-ampersand;
+    font: 2rem/9 $font-neue-montreal;
+
+   
     
   }
 }
@@ -88,12 +88,13 @@
 .home__link__wrapper {
   display: inline-block;
   pointer-events: none;
-  margin-top: 55rem;
+  margin-top: 60rem;
   position: flex;
-  min-width: 68.3rem;
+  min-width: 72.3rem;
 
   @include media('<=phone') {
     min-width: 28.3rem;
+    margin-top: 20rem;
 
   }
 }

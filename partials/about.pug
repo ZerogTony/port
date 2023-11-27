@@ -34,7 +34,7 @@ section.about
       header.about__header
         h1.about__header__title
           span.about__header__title__text
-            | #[span TIM]
+            | #[span TIM ]
             | #[span ANDREWS]
 
           span.about__header__title__text
@@ -44,19 +44,12 @@ section.about
             | #[span .]
             | #[span DESINGER]
 
-      .about__gallery(data-src="/about.jpg" data-src-webp="/about.webp")
-        each _, index in Array(24)
-          .about__gallery__media(class=[1, 2, 8, 9, 11, 12, 13, 15, 16, 19, 21, 23].indexOf(index) > -1 ? "about__gallery__media--transparent" : "" data-index=index)
-
-        a.about__gallery__text(
-          href="https://www.nationalgallery.org.uk/paintings/ignace-henri-theodore-fantin-latour-a-basket-of-roses"
-          rel="noreferrer noopener"
-          target="_blank"
-        )
+      .about__gallery
+    
 
       .about__sections
         .about__section
-          h2.about__section__title About
+          h2.about__section__title ABOUT
 
           .about__section__content
             p.about__section__description(data-animation="paragraph")
@@ -73,8 +66,8 @@ section.about
           h2.about__section__title EXPERIENCE 
 
           .about__section__content
-            p.about__section__number 7+
-            p.about__section__number2   years
+            p.about__section__number 7
+            p.about__section__number2  YEARS
 
             ul.about__section__list
               +award("/case'", "2023", "Topps Cafe", "Menu Board Design", "Freelance Designer")

@@ -27,7 +27,8 @@
   width: 33.33%;
 
   @include media('<=phone') {
-    font-size: 4rem;
+    font-size: 7rem;
+    text-align: center;
     padding-top: 0;
     width: 100%;
   }
@@ -58,7 +59,9 @@
 
   @include media('<=phone') {
     font-size: 1.6rem;
-    padding-left: 16.66667%;
+    padding: 5rem;
+    justify-content: center;
+    text-align: justify;
     width: 100%;
 
     &:not(:first-child) {
@@ -79,18 +82,20 @@
   @include media('<=phone') {
     font-size: 20rem;
     height: 20rem;
-    margin-top: 0;
+    text-align: center;
+    margin-top: -4.3;
   }
 }
 
 .about__section__number2 {
   font: 10rem/4 $font-ampersand;
   height: 40rem;
-  margin-top: -4.3rem;
+  margin-top: 4.3rem;
 
   @include media('<=phone') {
-    font-size: 10rem;
+    font-size: 5rem;
     height: 20rem;
+    text-align: center;
     margin-top: 0;
   }
 }

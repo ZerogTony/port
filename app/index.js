@@ -34,9 +34,9 @@ class App {
 
     AutoBind(this)
 
-    if (!Detection.isMobile()) {
+  
       this.createCanvas()
-    }
+    
 
     this.createNavigation()
     this.createCase()
