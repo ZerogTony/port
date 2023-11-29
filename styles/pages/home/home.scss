@@ -30,7 +30,7 @@
   height: 100%;
   background-color: rgb(247, 247, 247); // or any color you prefer
   z-index: 100; // ensure it's above other content
-  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
   transform: translateY(0); // start fully visible
 }
 

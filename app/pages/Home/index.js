@@ -17,7 +17,7 @@ export default class extends Page {
       },
       isScrollable: false
     })
-
+    this.hasTransitionPlayed = false;
     this.create()
   }
 
@@ -25,13 +25,17 @@ export default class extends Page {
    * Animations.
    */
   show () {
+    
     this.list.enable()
 
     this.element.classList.add(this.classes.active)
 
-    setTimeout(() => {
-      this.elements.fullscreenDiv.style.transform = 'translateY(-100%)'; // move it upwards
-    }, 500);
+    if (!this.hasTransitionPlayed) {
+     setTimeout(() => {
+        this.elements.fullscreenDiv.style.transform = 'translateY(-100%)';
+        this.hasTransitionPlayed = true; // Set the flag to true after playing the transition
+      }, 500);
+    }
 
     return super.show()
 
@@ -44,10 +48,12 @@ export default class extends Page {
     this.element.classList.remove(this.classes.active)
 
     await delay(400)
+    if (!this.hasTransitionPlayed) {
+      this.elements.fullscreenDiv.style.transform = 'translateY(0)';
+      this.hasTransitionPlayed = true; // Set the flag to true after playing the transition
+    }
 
-    this.elements.fullscreenDiv.style.transform = 'translateY(0)';
-
-    return super.hide()
+    return super.hide();
   }
 
   /**

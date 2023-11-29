@@ -165,18 +165,18 @@ destroy() {
    //this.alpha.target = 0;
 
 
-    if (this.alpha.current === this.alpha.target) return
+   if (this.alpha.current === this.alpha.target) return;
 
-    this.alpha.current = lerp(this.alpha.current, this.alpha.target, this.alpha.ease, true)
+  this.alpha.current = lerp(this.alpha.current, this.alpha.target, this.alpha.ease, true);
 
-    if (this.alpha.current < 0.01) {
-      this.alpha.current = 0
-    } else if (this.alpha.current > 0.99) {
-      this.alpha.current = 1
-    }
-
-    this.plane.program.uniforms.uAlpha.value = this.alpha.current
+  if (this.alpha.current < 0.01) {
+    this.alpha.current = 0;
+  } else if (this.alpha.current > 0.99) {
+    this.alpha.current = 1;
   }
+
+  this.plane.program.uniforms.uAlpha.value = this.alpha.current;
+}
 
   updateVisibility () {
     if (this.alpha.current === 0 && this.plane.visible) {
