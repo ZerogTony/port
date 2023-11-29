@@ -1,4 +1,4 @@
-const staticCacheName = 'bizarro-v1'
+const staticCacheName = 'tusiime-v1'
 
 const filesToCache = [
   '/offline/index.html'

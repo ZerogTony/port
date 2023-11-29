@@ -146,8 +146,8 @@
   text-align: justify; // Centers the text horizontally
   text-align-last: justify;
   text-justify: inter-word;
-  padding: 3rem 62rem; // Adds vertical padding above and below the text
-  font-family: $font-Neue-Pixel-Grotesk; // Uses your font variable
+  padding: 3rem 61rem; // Adds vertical padding above and below the text
+  font-family: $font-neue-montreal; // Uses your font variable
   font-size: 3rem; // Example font size, adjust as needed
   text-transform: uppercase;
  transition: transform 2.5s $ease-out-expo; // Set up a transition
@@ -164,7 +164,7 @@
   text-align-last: justify;
   text-justify: inter-word;
   padding: 3rem 10rem; // Adds vertical padding above and below the text
-  font-family: $font-Neue-Pixel-Grotesk; // Uses your font variable
+  font-family: $font-neue-montreal; // Uses your font variable
   font-size: 0.9rem; // Example font size, adjust as needed
   text-transform: uppercase;
     

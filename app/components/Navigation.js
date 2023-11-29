@@ -1,19 +1,9 @@
 import each from 'lodash/each'
 
-import lottie from 'lottie-web'
-
 import Component from 'classes/Component'
 import { random } from 'utils/math'
 
-document.addEventListener('DOMContentLoaded', () => {
-  lottie.loadAnimation({
-    container: document.getElementById('lottie-animation-container'), // The container where the animation will be loaded
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'https://uploads-ssl.webflow.com/6079a13028657ff8df79e01f/6304d93916d8c08b45c1d629_nu.json' // URL to the Lottie JSON file
-  });
-});
+
 
 export default class extends Component {
   constructor ({ canvas, url }) {

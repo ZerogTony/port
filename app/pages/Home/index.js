@@ -12,7 +12,8 @@ export default class extends Page {
       element: '.home',
       elements: {
         list: '.home__list',
-        items: '.home__item'
+        items: '.home__item',
+        fullscreenDiv: '.fullscreen-div'
       },
       isScrollable: false
     })
@@ -28,7 +29,13 @@ export default class extends Page {
 
     this.element.classList.add(this.classes.active)
 
+    setTimeout(() => {
+      this.elements.fullscreenDiv.style.transform = 'translateY(-100%)'; // move it upwards
+    }, 500);
+
     return super.show()
+
+    
   }
 
   async hide () {
@@ -37,6 +44,8 @@ export default class extends Page {
     this.element.classList.remove(this.classes.active)
 
     await delay(400)
+
+    this.elements.fullscreenDiv.style.transform = 'translateY(0)';
 
     return super.hide()
   }
