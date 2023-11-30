@@ -1,9 +1,9 @@
 .intro {
     @extend %cover;
     @extend %page;
-  
+   z-index: 2;
     overflow: hidden;
-    transition: opacity 5s ease, visibility 0.5s ease;
+    transition: opacity 0.4s 1s ease, visibility 0.5s ease;
     background-color: white;
   
     &--active {
@@ -35,7 +35,7 @@
     max-height: calc(100vh - 40px); // Adjust 40px to your desired total vertical margin
     margin-top: 20px; 
     margin-bottom: 20px; 
-    overflow: auto; 
+    overflow: hidden; 
     
     @include media('<=phone') {
       padding: 1rem 0 1em;
@@ -46,7 +46,7 @@
       pointer-events: none;
       text-align: center;
       max-height: calc(100vh - 40px); // Adjust 40px to your desired total vertical margin
-      overflow: auto; 
+      overflow: hidden; 
       
     }
   

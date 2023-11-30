@@ -81,3 +81,28 @@ export default class extends Page {
   }
 }
 
+document.querySelector('.intro__enter a').addEventListener('click', function(event) {
+  // Prevent the default link action
+  event.preventDefault();
+
+  // Get the href attribute of the link
+  var href = this.getAttribute('href');
+
+  // Add reverse animation to header title
+  var headerTitle = document.querySelector('.intro__header__title');
+  headerTitle.classList.add('intro__header__title--reverse');
+
+  // Add reverse animation to image
+  var image = document.querySelector('.intro__image');
+  image.classList.add('intro__image--reverse');
+
+  // Add reverse animation to description
+  var description = document.querySelector('.intro__description');
+  description.classList.add('intro__description--reverse');
+
+  // Redirect after a delay
+  setTimeout(function() {
+    window.location.href = home;
+  }, 1500); // Adjust this delay based on your longest animation duration
+});
+

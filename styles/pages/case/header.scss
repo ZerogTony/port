@@ -27,7 +27,7 @@
 }
 
 .case__title {
-  font: 15rem/0.8 $font-ampersand;
+  font: 30rem/0.8 $font-ampersand;
   overflow: hidden;
   padding: 0 1rem;
   position: relative;
@@ -53,7 +53,7 @@
 
   .case--active & {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-10%);
   }
 }
 

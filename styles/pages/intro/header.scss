@@ -38,13 +38,15 @@
   }
 }
 
+
+
 .intro--active {
   .intro__header__title__text span {
     transform: translateY(0);
   }
 
   .intro__header__title__text:nth-child(1) span {
-    transition: transform 2.5s 0.2s $ease-out-expo;
+    transition: transform 2.5s 1s $ease-out-expo;
   }
 
   .intro__header__title__text:nth-child(2) span {
@@ -60,19 +62,15 @@
   }
 }
 
-.intro__header__title__role {
-  span {
-    display: block;
-  }
-
-  span:first-child {
-
-  }
-
-  span:last-child {
-    text-align: right;
-  }
+.intro__header__title--reverse {
+  /* Define your reverse animation properties here */
+  /* Example: */
+  transform: translateY(-130%);
+  transition: transform 0.4s ease;
 }
+
+
+
 
 .image-wrapper {
   position: relative;
@@ -82,6 +80,12 @@
   justify-content: center; // Centers the image horizontally
   align-items: center; // Centers the image vertically
   margin-top: -12rem; // Adds some space between the title and the image
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.1);
+
+  }
 
   @include media('<=phone') {
     margin-top: -5rem;
@@ -93,24 +97,27 @@
 .intro__image {
   max-width: 25%;
   height: auto;
-  opacity: 0; // Start with the image fully transparent
-  transition: opacity 2s ease-in-out, transform 0.3s ease;
-  will-change: transform; // This line can help with rendering performance
+  transform: translateY(120%);
+  transition: transform 1s 1.2s $ease-out-expo;
 
   @include media('<=phone') {
     max-width: 50%;
       
     }
 
-  &:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
+
 }
 
 
+
 .intro--active .intro__image {
-  opacity: 1; // Fade the image in to full opacity
+  transform: translateY(0); // Move to the final position
+  opacity: 1; // Make the text fully visible
+}
+
+.intro__image--reverse {
+  transform: translateY(-120%);
+  transition: transform 1s $ease-out-expo;
 }
 
 @keyframes fadeInOut {
@@ -127,7 +134,7 @@
     font-size: 5rem; // Adjust the font size as needed
     color: white; // Use your color variable
     text-transform: uppercase;
-    font-family: $font-Neue-Pixel-Grotesk; // Use your font variable
+    font-family: $font-neue-montreal; // Use your font variable
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer; // If it's clickable
      z-index: 3;
@@ -143,20 +150,16 @@
 
 .intro__description {
   display: block;
-  text-align: justify; // Centers the text horizontally
-  text-align-last: justify;
-  text-justify: inter-word;
-  padding: 3rem 61rem; // Adds vertical padding above and below the text
+  text-align: justify center; // Centers the text horizontally
+  padding: 3rem 69rem; // Adds vertical padding above and below the text
   font-family: $font-neue-montreal; // Uses your font variable
   font-size: 3rem; // Example font size, adjust as needed
   text-transform: uppercase;
- transition: transform 2.5s $ease-out-expo; // Set up a transition
- transition-delay: 1s; // Delay the start of the animation
- color: $color-pine-tree;
-  transition-property: transform, opacity; // Transition both transform and opacity
-  transition-duration: 1s, 1.5s; // Different durations for transform and opacity
-  transition-timing-function: $ease-out-expo, ease; // Ease for opacity
-  transition-delay: 0s, 1s; // Different delays for transform and opacity
+  color: $color-pine-tree;
+  transform: translateY(100%);
+  transition: transform 2s 1.6s $ease-out-expo;
+  
+  
 
   @include media('<=phone') {
   display: block;
@@ -167,15 +170,26 @@
   font-family: $font-neue-montreal; // Uses your font variable
   font-size: 0.9rem; // Example font size, adjust as needed
   text-transform: uppercase;
+  overflow: hidden;
     
     
   }
 
 }
+
+
 .intro--active {
 .intro__description {
   transform: translateY(0); // Move to the final position
   opacity: 1; // Make the text fully visible
   
 }
+}
+
+.intro__description--reverse {
+  /* Define your reverse animation properties here */
+  /* Example: */
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
 }
