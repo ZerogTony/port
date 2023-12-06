@@ -21,8 +21,31 @@ export default class extends Page {
       isScrollable: true
     })
 
-    this.create()
+    this.create();
+    this.addEventListeners();
   }
+
+  toggleDescription(caseId) {
+    var descriptionElement = document.getElementById(caseId).querySelector('.case__description');
+    if (descriptionElement.style.display === 'none') {
+      descriptionElement.style.display = 'block'; // or 'flex'
+    } else {
+      descriptionElement.style.display = 'none';
+    }
+  }
+
+  addEventListeners() {
+    // Add event listeners for each case description toggle button
+    const toggleButtons = document.querySelectorAll('.case__description__toggle');
+    toggleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const caseId = button.getAttribute('data-case-id');
+        this.toggleDescription(caseId);
+      });
+    });
+  }
+  
+  
 
   /**
    * Animations.
@@ -84,5 +107,15 @@ export default class extends Page {
     each(this.elements.cases, element => {
       element.limit = element.clientHeight
     })
+  }
+}
+
+
+function toggleDescription(caseId) {
+  var descriptionElement = document.getElementById(caseId).querySelector('.case__description');
+  if (descriptionElement.style.display === 'none') {
+      descriptionElement.style.display = 'block'; // or 'flex'
+  } else {
+      descriptionElement.style.display = 'none';
   }
 }

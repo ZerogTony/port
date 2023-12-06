@@ -257,6 +257,7 @@ destroy() {
     this.isOpened = true;
     window.dispatchEvent(new CustomEvent('mediaOpened', { detail: this.id }));
     this.animation.play();
+    
 
 
 }

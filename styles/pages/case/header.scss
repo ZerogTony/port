@@ -112,6 +112,14 @@
     margin-bottom: 1rem;
 }}
 
+.case__description__toggle{
+  font-size: 3.5rem;
+  line-height: 1.5;
+  width: 100%;
+  margin: 5rem auto; // Adds vertical spacing, you can adjust it as needed
+  text-align: center;
+}
+
 .case__description {
   font-size: 3.5rem;
   line-height: 1.5;

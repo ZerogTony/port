@@ -27,7 +27,12 @@ export default class extends Component {
     this.aboutGallery = document.querySelector('.about__gallery')
 
     this.onChange(url)
+
+    this.isEasterEggBlack = true;
   }
+
+
+  
 
   /**
    * Events.
@@ -44,26 +49,51 @@ export default class extends Component {
     })
   }
 
-  onEasterEgg () {
-    const value = random(0, 360, 0.01)
-    const background = `hsl(${value}deg 19% 9%)`
 
-    document.documentElement.style.background = background
+  
 
-    this.homeBottom.style.background = `linear-gradient(to bottom, transparent 0%, ${background} 100%)`
-    this.homeTop.style.background = `linear-gradient(to bottom, ${background} 0%, transparent 100%)`
-    this.aboutGallery.style.color = background
 
-    const canvas = document.documentElement.style.background.replace('rgb(', '').replace(')', '').replace(/ /g, '').split(',')
+onEasterEgg () {
+  // Toggle the color between white and black
+  const backgroundColor = this.isEasterEggBlack ? 'black' : 'white';
+  const fontColor = this.isEasterEggBlack ? 'white' : 'black';
 
-    if (this.canvas) {
-      this.canvas.background = {
-        r: canvas[0],
-        g: canvas[1],
-        b: canvas[2]
-      }
-    }
+  // Apply the background color
+  document.documentElement.style.background = backgroundColor;
+  this.homeBottom.style.background = `linear-gradient(to bottom, transparent 0%, ${backgroundColor} 100%)`;
+  this.homeTop.style.background = `linear-gradient(to bottom, ${backgroundColor} 0%, transparent 100%)`;
+
+  // Apply the font color
+  document.documentElement.style.color = fontColor;
+  this.aboutGallery.style.color = fontColor;
+
+  // Update specific elements like "work" and "about"
+  const workElement = document.querySelector('.work'); // Replace '.work' with the actual class or ID
+  const aboutElement = document.querySelector('.home__link'); // Replace '.about' with the actual class or ID
+  if (workElement) workElement.style.color = fontColor;
+  if (aboutElement) aboutElement.style.color = fontColor;
+
+  // Update the navigation links
+  const navigationLinks = document.querySelectorAll('.navigation__link'); // Replace with the actual class or ID of your navigation links
+  navigationLinks.forEach(link => {
+    link.style.color = fontColor;
+  });
+
+  // Update the canvas background if it exists
+  if (this.canvas) {
+    const colorValue = this.isEasterEggBlack ? 0 : 255; // Black is 0, white is 255
+    this.canvas.background = {
+      r: colorValue,
+      g: colorValue,
+      b: colorValue
+    };
   }
+
+  // Toggle the state for the next click
+  this.isEasterEggBlack = !this.isEasterEggBlack;
+}
+
+
 
   /**
    * Listeners.

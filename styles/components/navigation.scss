@@ -2,10 +2,10 @@
 
 .navigation {
   @extend %cover;
-  mix-blend-mode: difference;
   pointer-events: none;
   position: fixed;
   z-index: z('navigation');
+  mix-blend-mode: difference;
 }
 
 .navigation__list {
@@ -21,7 +21,6 @@
 
 
 .navigation__item {
-  
   font-size: 2rem;
   line-height: 3.6rem;
   pointer-events: auto;
@@ -29,16 +28,19 @@
 
   &:nth-child(1) {
     font: 3rem $font-ampersand;
+    
     left: 5rem;
     top: 5rem;
   }
 
   &:nth-child(2) {
+    mix-blend-mode: difference;
     right: 20rem;
     top: 5rem;
   }
 
   &:nth-child(3) {
+    mix-blend-mode: difference;
     right: 5rem;
     top: 5rem;
   }
@@ -79,6 +81,7 @@
   &:after {
     transform: scaleX(1) !important;
     transform-origin: left center !important;
+    
   }
 }
 

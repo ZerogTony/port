@@ -23,9 +23,10 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
         | #[strong.case__information__detail__title Practice]
         | #{technologies}
 
-    if description
-      .case__description
-        p.case__description__text #{description}
+    button.case__description__toggle(data-case-id=id) Read Description
+
+    .case__description(style='display: none;')
+      p.case__description__text= description
 
     .case__gallery
       if video
@@ -46,7 +47,6 @@ mixin template({ id, title, category, company, role, technologies, link, label, 
               data-src-webp=`/case/${id}/${content.image}.webp`
               style=`padding-top: ${content.height / content.width * 100}%;`
             )
-
 
 .cases
   +template({
