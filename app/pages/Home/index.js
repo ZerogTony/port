@@ -15,7 +15,7 @@ export default class extends Page {
         items: '.home__item',
         fullscreenDiv: '.fullscreen-div'
       },
-      isScrollable: false
+      isScrollable: true
     })
     this.hasTransitionPlayed = false;
     this.create()

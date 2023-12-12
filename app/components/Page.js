@@ -62,7 +62,7 @@ export default class extends EventEmitter {
 
     if (this.isScrollable) {
       this.scroll = {
-        ease: 0.1,
+        ease: 0.4,
         position: 0,
         current: 0,
         target: 0,
