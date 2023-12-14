@@ -60,7 +60,10 @@ export default class extends Component {
       // Change the background to black
       document.documentElement.style.background = 'black';
   
-      // Update the background of other elements if necessary
+      // Update the text color of the 'about', 'case', and 'home' pages to white
+      this.updateTextColor('.about, .case, .home', '#d3d5d5');
+  
+      // Rest of the easter egg logic for other elements
       this.homeBottom.style.background = 'linear-gradient(to bottom, transparent 0%, black 100%)';
       this.homeTop.style.background = 'linear-gradient(to bottom, black 0%, transparent 100%)';
       this.aboutGallery.style.color = 'white'; // Change text color for visibility
@@ -74,29 +77,36 @@ export default class extends Component {
         };
       }
     } else {
-      // Revert to the original background color
+      // Logic to revert to the original state
       document.documentElement.style.background = this.originalBackground;
   
-      // Revert the background of other elements to their original state
-      this.homeBottom.style.background = ''; // Original style for homeBottom
-      this.homeTop.style.background = ''; // Original style for homeTop
-      this.aboutGallery.style.color = ''; // Original text color
+      // Logic to revert the color of the 'about', 'case', and 'home' pages
+      this.updateTextColor('.about, .case, .home', '');
   
-      // Revert the canvas background color if it's part of your design
+      // Rest of the logic to revert other easter egg effects
+      this.homeBottom.style.background = ''; // Restoring the original homeBottom style
+      this.homeTop.style.background = ''; // Restoring the original homeTop style
+      this.aboutGallery.style.color = ''; // Restoring the original aboutGallery text color
+  
+      // Logic to revert the canvas background color if it's part of your design
       if (this.canvas) {
-        // Assuming you have a method or properties to get the original canvas background
         this.canvas.background = this.getOriginalCanvasBackground();
       }
     }
   
-    // Toggle the state
+    // Toggle the easter egg activation state
     this.isOriginalBackground = !this.isOriginalBackground;
   }
   
-  // Example helper method to get the original canvas background
-  // You need to implement this based on how your canvas background is set
+  updateTextColor(selector, color) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      el.style.color = color;
+    });
+  }
+  
   getOriginalCanvasBackground() {
-    // Return the original canvas background color
+    // Logic to get the original canvas background color
     // This is just a placeholder, you need to implement this method
     return {
       r: 255, // Original red component
@@ -104,6 +114,8 @@ export default class extends Component {
       b: 255  // Original blue component
     };
   }
+  
+  
 
   /**
    * Listeners.

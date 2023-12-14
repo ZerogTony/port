@@ -26,24 +26,29 @@ export default class extends Page {
   }
 
   toggleDescription(caseId) {
-    var descriptionElement = document.getElementById(caseId).querySelector('.case__description');
-    if (descriptionElement.style.display === 'none') {
-      descriptionElement.style.display = 'block'; // or 'flex'
-    } else {
-      descriptionElement.style.display = 'none';
-    }
+    const button = document.querySelector(`button[data-case-id="${caseId}"]`);
+    const description = document.getElementById(caseId).querySelector('.case__description');
+  
+    // Hides the "Read Description" button
+    button.style.display = 'none';
+  
+    // Shows the case description
+    description.style.display = 'block'; // or 'flex' if you want
+    description.style.opacity = 1;
   }
+  
+  
 
   addEventListeners() {
-    // Add event listeners for each case description toggle button
     const toggleButtons = document.querySelectorAll('.case__description__toggle');
-    toggleButtons.forEach((button) => {
+    toggleButtons.forEach(button => {
       button.addEventListener('click', () => {
         const caseId = button.getAttribute('data-case-id');
         this.toggleDescription(caseId);
       });
     });
   }
+  
   
   
 

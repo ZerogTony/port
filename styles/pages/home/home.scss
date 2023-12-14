@@ -3,6 +3,7 @@
 .home {
   @extend %cover;
   @extend %page;
+  color: $color-pine-tree;
 
   
   transition: opacity 0s ease, visibility 0.4s ease;
@@ -96,7 +97,7 @@
 .home__link {
   display: block;
   text-align: center;
-  color: $color-pine-tree;
+
   
   
 }

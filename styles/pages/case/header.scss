@@ -112,13 +112,23 @@
     margin-bottom: 1rem;
 }}
 
-.case__description__toggle{
+.case__description__toggle {
   font-size: 3.5rem;
   line-height: 1.5;
   width: 100%;
-  margin: 5rem auto; // Adds vertical spacing, you can adjust it as needed
+  margin: 5rem auto; // Adjusts vertical spacing
   text-align: center;
-}
+  cursor: pointer; // Suggests that it's clickable
+
+
+  &:hover {
+    text-decoration: underline; 
+  }
+
+  @include media('<=phone') {
+    
+    font-size: 1rem;
+}}
 
 .case__description {
   font-size: 3.5rem;
