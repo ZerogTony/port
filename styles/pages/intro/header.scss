@@ -82,30 +82,41 @@
   margin-top: -12rem; // Adds some space between the title and the image
   overflow: hidden;
 
-  &:hover {
-    transform: scale(1.1);
 
-  }
 
   @include media('<=phone') {
-    margin-top: -5rem;
+    margin-top: -3rem;
       
       
     }
 }
 
 .intro__image {
+  position: relative; // Ensures that the pseudo-element is positioned relative to this element
   max-width: 25%;
   height: auto;
   transform: translateY(120%);
   transition: transform 1s 1.2s $ease-out-expo;
 
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(236,214,176, 1); /* Adjust the color and opacity as needed */
+    mix-blend-mode: multiply;
+    pointer-events: none; // Ensures that the overlay doesn't block interaction with the image
+  }
+
+ 
+
   @include media('<=phone') {
     max-width: 50%;
-      
-    }
-
-
+    // Rest of your responsive styles
+  }
 }
 
 

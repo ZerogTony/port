@@ -4,7 +4,7 @@
    z-index: 10000;
     overflow: hidden;
     transition: opacity 0.4s 1s ease, visibility 0.5s ease;
-    background-color: rgb(233, 237, 201);
+    background-color: rgb(236,214,176);
   
     &--active {
         @extend %page--active;
