@@ -33,7 +33,6 @@
   position: relative;
   text-align: center;
   transform: translateY(50%);
-  white-space: nowrap;
   z-index: 1;
 
   @include media('<=phone') {
