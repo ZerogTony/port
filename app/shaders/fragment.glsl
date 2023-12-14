@@ -2,7 +2,8 @@ precision highp float;
 
 uniform float uAlpha;
 uniform float uMultiplier;
-
+uniform vec3 uDarkTint; // Tint color for the dark areas
+uniform vec3 uLightTint; // Tint color for the light areas
 uniform sampler2D tMap;
 
 varying float vDisplacement;
@@ -15,16 +16,20 @@ vec3 saturation(vec3 rgb, float adjustment) {
 }
 
 void main() {
-  vec3 color = texture2D(tMap, vUv).rgb;
-  float value = 1.0;
-
-  if (vDisplacement > 0.0) {
-    color += vDisplacement * mix(0.2, 0.19, uMultiplier);
-    value = 1.0 + vDisplacement * 2.0;
+  vec4 textureColor = texture2D(tMap, vUv);
+  float luminance = dot(textureColor.rgb, vec3(0.299, 0.587, 0.114)); // Calculate luminance
+  
+  vec3 color;
+  if (luminance < 0.5) { // Dark areas
+    color = mix(uDarkTint, textureColor.rgb, luminance / 0.5);
+  } else { // Light areas
+    color = mix(textureColor.rgb, uLightTint, (luminance - 0.5) / 0.5);
   }
 
-  color = saturation(color, value);
+  // Apply the vDisplacement effect
+  color += vDisplacement * mix(0.1, 0.19, uMultiplier); // Tweak this to make the effect more subtle
 
-  gl_FragColor.rgb = color;
-  gl_FragColor.a = uAlpha;
+  color = saturation(color, 1.0); // Keep saturation unaffected by displacement for now
+
+  gl_FragColor = vec4(color, textureColor.a * uAlpha);
 }

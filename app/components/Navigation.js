@@ -55,26 +55,30 @@ export default class extends Component {
 
 
   onEasterEgg() {
+    // Convert hexadecimal color to RGB
+    const newBackgroundColor = '#283618'; // New background color
+    const newBackgroundRgb = {
+      r: 40,
+      g: 54,
+      b: 24
+    };
+  
     // Check if the current background is the original
     if (this.isOriginalBackground) {
-      // Change the background to black
-      document.documentElement.style.background = 'black';
+      // Change the background to the new color
+      document.documentElement.style.background = newBackgroundColor;
   
-      // Update the text color of the 'about', 'case', and 'home' pages to white
+      // Assuming you want to update the text color for better contrast, choose a suitable color
       this.updateTextColor('.about, .case, .home', '#d3d5d5');
   
       // Rest of the easter egg logic for other elements
-      this.homeBottom.style.background = 'linear-gradient(to bottom, transparent 0%, black 100%)';
-      this.homeTop.style.background = 'linear-gradient(to bottom, black 0%, transparent 100%)';
-      this.aboutGallery.style.color = 'white'; // Change text color for visibility
+      this.homeBottom.style.background = `linear-gradient(to bottom, transparent 0%, ${newBackgroundColor} 100%)`;
+      this.homeTop.style.background = `linear-gradient(to bottom, ${newBackgroundColor} 0%, transparent 100%)`;
+      this.aboutGallery.style.color = '#d3d5d5'; // Change text color for visibility
   
       // Update the canvas background color if it's part of your design
       if (this.canvas) {
-        this.canvas.background = {
-          r: 0,
-          g: 0,
-          b: 0
-        };
+        this.canvas.background = newBackgroundRgb;
       }
     } else {
       // Logic to revert to the original state
@@ -114,6 +118,7 @@ export default class extends Component {
       b: 255  // Original blue component
     };
   }
+  
   
   
 

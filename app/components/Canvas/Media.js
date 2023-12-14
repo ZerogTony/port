@@ -73,31 +73,34 @@ destroy() {
 
 
 
-  createMesh () {
-    const texture = TextureLoader.load(this.gl, {
-      src: this.homeLinkMedia.getAttribute(Detection.isWebPSupported() ? 'data-src-webp' : 'data-src')
-    })
+createMesh() {
+  const texture = TextureLoader.load(this.gl, {
+    src: this.homeLinkMedia.getAttribute(Detection.isWebPSupported() ? 'data-src-webp' : 'data-src')
+  });
 
-    const program = new Program(this.gl, {
-      fragment,
-      vertex,
-      uniforms: {
-        uAlpha: { value: 0 },
-        uDirection: { value: this.direction === 'left' ? 1 : -1 },
-        uTime: { value: 0 },
-        uMultiplier: { value: 1 },
-        tMap: { value: texture }
-      },
-      transparent: true
-    })
+  const program = new Program(this.gl, {
+    fragment,
+    vertex,
+    uniforms: {
+      uAlpha: { value: 0 },
+      uDirection: { value: this.direction === 'left' ? 1 : -1 },
+      uTime: { value: 0 },
+      uMultiplier: { value: 1 },
+      tMap: { value: texture },
+      uDarkTint: { value: [0.7216, 0.4353, 0.3216] },
+      uLightTint: { value: [0.9255, 0.8392, 0.6902] }, // RGB color converted to normalized values
+      uTintStrength: { value: 1 }, // Add this line - Example tint strength
+    },
+    transparent: true
+  });
 
-    this.plane = new Mesh(this.gl, {
-      geometry: this.geometry,
-      program
-    })
+  this.plane = new Mesh(this.gl, {
+    geometry: this.geometry,
+    program
+  });
 
-    this.plane.setParent(this.scene)
-  }
+  this.plane.setParent(this.scene);
+}
 
   createBounds () {
     this.boundsList = getOffset(this.homeList)
