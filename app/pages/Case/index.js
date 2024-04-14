@@ -1,12 +1,10 @@
-import each from 'lodash/each'
-
-import Detection from 'classes/Detection'
-import Page from 'components/Page'
-
-import { delay } from 'utils/math'
+import each from 'lodash/each';
+import Detection from 'classes/Detection';
+import Page from 'components/Page';
+import { delay } from 'utils/math';
 
 export default class extends Page {
-  constructor () {
+  constructor() {
     super({
       classes: {
         active: 'cases--active',
@@ -19,25 +17,11 @@ export default class extends Page {
         cases: '.case'
       },
       isScrollable: true
-    })
+    });
 
     this.create();
     this.addEventListeners();
   }
-
-  toggleDescription(caseId) {
-    const button = document.querySelector(`button[data-case-id="${caseId}"]`);
-    const description = document.getElementById(caseId).querySelector('.case__description');
-  
-    // Hides the "Read Description" button
-    button.style.display = 'none';
-  
-    // Shows the case description
-    description.style.display = 'block'; // or 'flex' if you want
-    description.style.opacity = 1;
-  }
-  
-  
 
   addEventListeners() {
     const toggleButtons = document.querySelectorAll('.case__description__toggle');
@@ -47,11 +31,68 @@ export default class extends Page {
         this.toggleDescription(caseId);
       });
     });
+
+    this.observeDescriptions();
+  }
+
+  toggleDescription(caseId) {
+    const button = document.querySelector(`button[data-case-id="${caseId}"]`);
+    const description = document.getElementById(caseId).querySelector('.case__description');
+  
+    if (description.style.display === 'none' || description.style.display === '') {
+      description.style.display = 'block';
+      button.style.display = 'none';
+    } else {
+      description.style.display = 'none';
+      button.style.display = 'block';
+    }
+  }
+
+  observeDescriptions() {
+    const descriptions = document.querySelectorAll('.case__description');
+  
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        console.log(`Observing: ${id}, isIntersecting: ${entry.isIntersecting}`);
+        if (id && !entry.isIntersecting) {
+          this.toggleDescriptionOff(id);
+        }
+      });
+    };
+  
+    const observer = new IntersectionObserver(observerCallback, { threshold: 0.1 });
+    descriptions.forEach(description => {
+      if (description.id) { // Ensure the element has an ID
+        observer.observe(description);
+      } else {
+        console.error('Description element is missing an ID:', description);
+      }
+    });
+  }
+  
+
+  toggleDescriptionOff(caseId) {
+    console.log('Toggling off description for:', caseId);
+  
+    // Find the description element
+    const description = document.getElementById(caseId);
+    console.log(`Looking for description with ID: ${caseId}, found:`, description);
+  
+    // The caseId for the button is the part before '-description'
+    const buttonCaseId = caseId.split('-')[0];
+    const button = document.querySelector(`button[data-case-id="${buttonCaseId}"]`);
+    console.log(`Looking for button with data-case-id: ${buttonCaseId}, found:`, button);
+  
+    if (description && button) {
+      description.style.display = 'none';
+      button.style.display = 'block';
+    } else {
+      console.error('Could not find elements for:', caseId);
+    }
   }
   
   
-  
-
   /**
    * Animations.
    */

@@ -7,7 +7,7 @@
   @include ratio(1366, 768);
 
   margin: auto;
-  width: 100%;
+  width: 70%;
 }
 
 .case__media__image {
@@ -27,7 +27,7 @@
 }
 
 .case__title {
-  font: 30rem/0.8 $font-ampersand;
+  font: 25rem/0.8 $font-ampersand;
   overflow: hidden;
   padding: 0 1rem;
   position: relative;
@@ -102,13 +102,16 @@
 
 .case__information__detail__title {
   display: block;
-  font-size: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 7rem;
   text-transform: uppercase;
 
   @include media('<=phone') {
     
     margin-bottom: 1rem;
+    font-size: 1rem;
+    
 }}
 
 .case__description__toggle {
@@ -118,6 +121,12 @@
   margin: 5rem auto; // Adjusts vertical spacing
   text-align: center;
   cursor: pointer; // Suggests that it's clickable
+  opacity: 0;
+  transition: opacity 0.4s 1s ease;
+
+  .case--active & {
+    opacity: 1;
+  }
 
 
   &:hover {
@@ -134,15 +143,17 @@
   line-height: 1.5;
   width: 79%;
   margin: 50rem auto; // Adds vertical spacing, you can adjust it as needed
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
   opacity: 0;
-  transition: opacity 0.4s 1s ease;
   
   .case--active & {
     opacity: 1;
+    max-height: 1000px;
   }
 
   @include media('<=phone') {
-    font-size: 1.6rem;
+    font-size: 1em;
     width: 100%; // On smaller devices the description takes full width
     margin-top: 5rem; // Adjust top margin on mobile devices
     padding-left: 16.66667%;

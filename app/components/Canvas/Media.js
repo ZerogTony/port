@@ -145,6 +145,8 @@ createMesh() {
   }
 
   updateScale () {
+
+    
     this.height = lerp(this.boundsHome.height, this.boundsCase.height, this.transition)
     this.width = lerp(this.boundsHome.width, this.boundsCase.width, this.transition)
 
